@@ -4,5 +4,8 @@
   "description": "express mini ",
   "main": "index.js",
   "author": "qpf",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
