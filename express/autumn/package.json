@@ -1,0 +1,8 @@
+{
+  "name": "autumn",
+  "version": "1.0.0",
+  "description": "express mini ",
+  "main": "index.js",
+  "author": "qpf",
+  "license": "MIT"
+}
