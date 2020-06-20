@@ -243,6 +243,24 @@ slot还能有多个，可以起名字
 </template>
 ```
 
+```javascript
+可以传入多个slot 
+<child-componment>
+     <h1 slot="header">
+     	父组件的header
+     </h1>
+     <h6 slot="footer">父组件的footer</h6>
+
+    <h6>父组件的无名slot-1</h6>
+    <p>
+    	父组件的无名slot-2
+    </p>
+</child-componment>
+
+```
+
+
+
 slot定义时可以携带数据，外部传入组件时候，如果要传入的插槽有数据，可以获得对应插槽里的数据
 
 slot='left',找到name='left'的slot, 不写找到没有name的slot
@@ -252,6 +270,12 @@ slot-scope='leftSlot'  leftSlot就是对应slot的实例对象了
 :left-data将left-data属性和books变量绑定了
 
 访问leftSlot对象的left-data属性就是books对象
+
+left-data是标签自定义属性，可以通过标签对象获取，slot-scope拿到标签对象
+
+slot='left'匹配slot定义标签
+
+1.匹配，2.拿对象，3.拿属性，4. get属性绑定的数据
 
 ```js
 <comp>

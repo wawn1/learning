@@ -103,7 +103,7 @@ const router=new VueRouter({
 跳转携带参数，需要v-bind, 注意外面""相当于{}
 
 ```js
-<router-link :to="'/home'+userId"></router-link>
+<router-link :to="'/home/'+userId"></router-link>
 data:{
     userId: 121,
 }

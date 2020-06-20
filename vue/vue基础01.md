@@ -120,6 +120,31 @@ methods:{
 <h2 class='title' :class="['active', 'line']"></h2>
 ```
 
+#### css选择器之间的 空格和逗号
+
+当两个选择器之间有空格的情况下，代表的是子类选择器
+
+```
+.a .b{}
+```
+
+代表的是a类的b子类
+
+而两个选择器之间没有空格的情况下，代表的是同时拥有两个类名的标签
+
+```
+<div class="a b"></div>
+.a.b{}
+```
+
+当两个选择器之间是逗号的情况下，代表的是选择了两个类选择器
+
+```
+<div class="a"></div>
+<div class="b"></div>
+.a,.b{}
+```
+
 #### 动态绑定style
 
 style标签里可以写对象，并且可以解析data里的数据到里面去
@@ -407,6 +432,12 @@ data:{
 相当于react中加了一个hidden的className, 里面时display:none,
 
 组件没有卸载只是隐藏了，存在dom树中，多了个css样式，不是不存在，没显示出来而已，
+
+visibility: hidden----将元素隐藏，bai但是在网页中该占的位置du还是占着。
+
+display: none----将元素的显示设为无，即在网页中不占任何的位置。
+
+visibility: hidden和display: none 的dom元素是存在dom树中的，只是加了个style
 
 ```js
 <h2 v-show='isShow'>......</h2>
