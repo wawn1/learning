@@ -171,6 +171,29 @@ methods:{
 }
 ```
 
+
+
+`$emit`传递多个参数
+ 子组件：
+
+
+
+```kotlin
+this.$emit('closeChange',false,true);
+```
+
+父组件：
+
+
+
+```kotlin
+<posilCom @closeChange="closeCom(arguments)"></posilCom>
+closeCom(msg) {
+  this.msg1 = msg[0];
+  this.msg2 = msg[1];
+}
+```
+
 #### watch
 
 watch和data, methods平级
