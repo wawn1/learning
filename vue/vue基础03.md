@@ -238,6 +238,67 @@ const routes=[
 
 此时子路由里设置默认路径，只能写空字符串，不能写'/'
 
+
+
+##### router-view
+
+router-view 写在哪里，先看component,  component: UserSettings,说明这个路由匹配后显示一个UserSettings组件，children里的路由都在
+
+UserSettings里的router-view 显示
+
+没有存在children当中，就是在App.vue的router-view显示
+
+```javascript
+{
+  path: '/settings',
+  // 你也可以在顶级路由就配置命名视图
+  component: UserSettings,
+  children: [{
+    path: 'emails',
+    component: UserEmailsSubscriptions
+  }, {
+    path: 'profile',
+    components: {
+      default: UserProfile,
+      helper: UserProfilePreview
+    }
+  }]
+}
+
+<!-- UserSettings.vue -->
+<div>
+  <h1>User Settings</h1>
+  <NavBar/>
+  <router-view/>
+  <router-view name="helper"/>
+</div>
+```
+
+##### 命名视图
+
+```html
+<router-view class="view one"></router-view>   隐含着name='default'
+<router-view class="view two" name="a"></router-view>
+<router-view class="view three" name="b"></router-view>
+```
+
+一个视图使用一个组件渲染，因此对于同个路由，多个视图就需要多个组件。确保正确使用 `components`配置 (带上 s)：
+
+```js
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      components: {
+        default: Foo,
+        a: Bar,
+        b: Baz
+      }
+    }
+  ]
+})
+```
+
 #### 跳转传参
 
 link传参
