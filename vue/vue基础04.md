@@ -359,3 +359,5 @@ rootState: 所有的state
 dispatch，
 
 可以dispatch任意模块里的action
+
+除了state, 其他的action, mutation,getters都是全局唯一的名字，虽然分模块，最终合并到一起
